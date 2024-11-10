@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+.playground-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.header-container {
+    box-sizing: border-box;
+    height: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1E1E1E;
+    padding: 12px;
+    color: white;
+}
+
+.site-heading {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-container .title {
+    font-size: 32px;
+    font-family: "Play", sans-serif;
+}
+
+.header-container img {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50px;
+}
+
+.content-container {
+    flex-grow: 1;
+    display: flex;
+    background-color: #1E1E1E;
+}
+
+.editor-container {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+}
+
+.input-output-outer-box {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-output-container {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.input-header {
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #EDEDED;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px;
+    z-index: 2;
+}
+
+.icon-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.input-output-container textarea {
+    flex-grow: 1;
+    border: none;
+    resize: none;
+    padding: 10px;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+.input-output-container button {
+    border: none;
+    cursor: pointer;
+}
+
+.input-output-container textarea:focus {
+    outline: none;
+}
+
+.export-import-text {
+    font-family: "Play", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.clr {
+    font-family: "Play", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.fullpage-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+}
+
+.loader2 {
+    width: 50px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #25b09b;
+    --_m:
+        conic-gradient(#0000 10%, #000),
+        linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 9;
+}
+
+.hamburger .hamburger-lines {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+.menu {
+    position: absolute;
+    z-index: 7;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: #1E1E1E;
+    width: 200px;
+
+}
+
+.menu-title {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 40px;
+    text-align: center;
+    font-family: "Play", sans-serif;
+}
+
+.menu-list2 {
+    z-index: 8;
+    width: 200px;
+    list-style-type: none;
+    position: absolute;
+    top: 220px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 2px 8px 0 0;
+}
+
+.menu-list2 li {
+    color: white;
+    font-family: "Play", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+@media screen and (max-width:1225px) {
+    .content-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .editor-container {
+        width: 100%;
+    }
+
+    .input-output-outer-box {
+        height: 500px;
+        width: 100%;
+        flex-grow: 1;
+        background-color: #1E1E1E;
+    }
+
+    .input-output-container {
+        flex-grow: 1;
+    }
+
+    .input-container {
+        height: 30%;
+    }
+
+    .input-header {
+        height: 3rem;
+    }
+}
+
+@media screen and (max-width:755px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .remove {
+        display: none;
+    }
+}
+
+/* vansh4117v */
