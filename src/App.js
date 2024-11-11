@@ -75,7 +75,8 @@ function App() {
 		<div className="playground-container">
 			<div className="header-container">
 				<div className="site-heading">
-					<img src="./logo.png" alt="logo" />
+					<img src="/LiteCode/logo.png" alt="logo" />
+					{/* <img src="./logo.png" alt="logo" /> */}
 					<span className="title">LiteCode</span>
 				</div>
 

@@ -127,7 +127,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 11;
+    z-index: 12;
 }
 
 .loader2 {
@@ -177,7 +177,16 @@
     height: 100vh;
     background-color: #1E1E1E;
     width: 200px;
+    animation: hamurgerAnimation 1s;
+}
 
+@keyframes hamurgerAnimation {
+    from{
+        width: 0%;
+    }
+    to{
+        width: 200px;
+    }
 }
 
 .menu-title {

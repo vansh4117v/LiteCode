@@ -98,8 +98,6 @@
     padding: 10px 25px;
 }
 
-
-
 .fullscreen {
     position: absolute;
     height: 100vh;
@@ -122,6 +120,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 2px 8px 0 0;
+    animation: hamurgerAnimation 1s;
+
 }
 
 .menu-list1 li {
@@ -133,6 +133,10 @@
     align-items: center;
     cursor: pointer;
     margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+
+
 }
 
 @media screen and (max-width:1225px) {
