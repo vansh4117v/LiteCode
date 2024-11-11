@@ -141,7 +141,7 @@ function App() {
 				<div className="menu-title">Options</div>
 				<hr />
 				<ul className="menu-list2">
-					<li><span className="material-icons">chevron_right</span><label htmlFor="import-input">Import Input</label></li>
+					<li><span className="material-icons">chevron_right</span><label htmlFor="input">Import Input</label></li>
 					<li onClick={exportOutput}><span className="material-icons">chevron_right</span>Export Output</li>
 				</ul>
 			</div>}
