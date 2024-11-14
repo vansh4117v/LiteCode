@@ -260,7 +260,6 @@
     cursor: pointer;
 }
 
-
 @media screen and (max-width:1225px) {
     .editor-body {
         flex-grow: 0;
