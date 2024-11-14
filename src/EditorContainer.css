@@ -36,7 +36,6 @@
     cursor: pointer;
 }
 
-
 .editor-header select:focus {
     outline: none;
 }
@@ -54,7 +53,6 @@
     font-size: 25px;
     color: black;
 }
-
 
 .btn {
     display: flex;
@@ -74,21 +72,6 @@
     flex-grow: 1;
 }
 
-.editor-helper {
-    background-color: white;
-    color: black;
-    display: none;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 12px;
-}
-
-.editor-helper div {
-    text-align: center;
-    cursor: pointer;
-    flex-grow: 1;
-}
-
 .editor-footer {
     background-color: white;
     box-sizing: border-box;
@@ -101,7 +84,6 @@
 .fullscreen {
     position: absolute;
     height: 100vh;
-    overflow: hidden;
     top: 0;
     left: 0;
     right: 0;
@@ -120,7 +102,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 2px 8px 0 0;
-    animation: hamurgerAnimation 1s;
+    animation: hamurgerAnimation 0.7s;
 
 }
 
@@ -139,10 +121,149 @@
 
 }
 
+.settings-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(51,51,51,0.8);
+    /* opacity: 0.5; */
+    z-index: 11;
+}
+
+.settings-container{
+    height: 350px;
+    width: 500px;
+    background-color: #1d1e23;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    border-radius: 5px;
+    animation: settingsAnimation 0.5s;
+}
+
+@keyframes settingsAnimation {
+    from{
+        transform: scale(0.2);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.settings-header{
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 20px;
+    height: 65px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-bottom: 3px solid rgba(59, 66, 80, 0.7);
+    margin-bottom: 10px;
+}
+
+.settings-close{
+    cursor: pointer;
+}
+
+.settings-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+}
+
+.settings-card-left{
+    max-width: 250px;
+    color: #d7d7d7;
+}
+
+.settings-card-title{
+    font-size: 16px;
+    line-height: 160%;
+    margin: 0;
+    font-weight: bold;
+}
+
+.settings-card-desc{
+    font-size: 12px;
+    line-height: 160%;
+    margin: 0;
+}
+
+.settings-card-right{
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    width: 120px;
+    -webkit-tap-highlight-color: transparent;
+    text-align: center;
+}
+
+.settings-theme-button{
+    border: 1px solid rgba(59, 66, 80, 0.7);
+    box-sizing:border-box;
+    padding: 8px;
+    /* width: 90px; */
+    border-radius: 4px;
+}
+
+.font-button,.font-value{
+    box-sizing:border-box;
+    height: 35px;
+    width: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.font-button{
+    border: 1px solid rgba(59, 66, 80, 0.7);
+    user-select: none;
+}
+
+.font-minus{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.font-plus{
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.font-value{
+    border-top: 1px solid rgb(45,46,45);
+    border-bottom: 1px solid rgb(45,46,45);
+    cursor: default;
+    height: 32px;
+}
+
+.font-value input{
+    text-align: center;
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    border: none;
+    outline: none;
+    color: inherit;
+}
+
+.wrap-checkbox{
+    height: 20px;
+    width: 20px;
+}
+
+
 @media screen and (max-width:1225px) {
     .editor-body {
         flex-grow: 0;
-        height: calc(100dvh - 12.5rem);
+        height: calc(100dvh - 19.5rem);
     }
 
     .editor-footer {
@@ -157,6 +278,24 @@
 @media screen and (max-width:755px) {
     .remove {
         display: none;
+    }
+    .settings-container{
+        width: 300px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-height:500px) {
+    .editor-body {
+        flex-grow: 0;
+        height: calc(100dvh - 12rem);
+    }
+    .settings-card-desc{
+        display: none;
+    }
+    .settings-container{
+        width: 300px;
+        height: 250px;
     }
 }
 

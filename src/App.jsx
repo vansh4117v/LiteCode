@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import "./App.css"
 import { EditorContainer } from "./EditorContainer";
-import { makeSubmission } from "./service";
+import { makeSubmission } from "./PistonApi";
 
 function App() {
 	const [input, setInput] = useState('');
@@ -10,7 +10,6 @@ function App() {
 	const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
 	const importInput = (e) => {
-		console.log(e);
 		const file = e.target.files[0];
 		if (file) {
 			const fileType = file.type.includes("text")
@@ -48,17 +47,7 @@ function App() {
 		}
 		else {
 			setShowLoader(false);
-			if (data.status.id === 3) {
-				setOutput(atob(data.stdout))
-			}
-			else {
-				if (data.language_id === 100 || data.language_id === 93) {
-					setOutput(atob(data.stderr))
-				}
-				else {
-					setOutput(atob(data.compile_output))
-				}
-			}
+			setOutput(data);
 		}
 	}
 
@@ -69,6 +58,10 @@ function App() {
 	const runCode = useCallback(({ code, language }) => {
 		setOutput("");
 		makeSubmission({ code, language, stdin: input, callback })
+		const outputBox = document.querySelector(".output-container");
+		if (outputBox) {
+			outputBox.scrollIntoView({ behavior: "smooth" });
+		}
 	}, [input])
 
 	return (
@@ -76,14 +69,13 @@ function App() {
 			<div className="header-container">
 				<div className="site-heading">
 					<img src="/LiteCode/logo.png" alt="logo" />
-					{/* <img src="./logo.png" alt="logo" /> */}
 					<span className="title">LiteCode</span>
 				</div>
 
 				{/* Hamburger Menu Toggle Button */}
 				<div className="hamburger" onClick={toggleHamburger}>
 					{isHamburgerOpen ? (
-						<span className="material-icons">close</span>
+						<span className="material-symbols-outlined">close</span>
 					) : (
 						<>
 							<span className="hamburger-lines"></span>
@@ -108,7 +100,7 @@ function App() {
 						<div className="input-header">
 							Input:
 							<label htmlFor="input" className="icon-container remove">
-								<span className="material-icons">download</span>
+								<span className="material-symbols-outlined">download</span>
 								<span className="export-import-text">Import Input</span>
 							</label>
 							<input type="file" accept=".txt" id="input" style={{ display: 'none' }} onChange={(e) => { importInput(e); e.target.value = ""; }} />
@@ -121,7 +113,7 @@ function App() {
 						<div className="input-header">
 							Output:
 							<button className="icon-container remove" onClick={exportOutput}>
-								<span className="material-icons">upload</span>
+								<span className="material-symbols-outlined">upload</span>
 								<span className="export-import-text">Export Output</span>
 							</button>
 						</div>
@@ -137,13 +129,15 @@ function App() {
 			</div>}
 
 
-			{isHamburgerOpen && <div className="menu">
+			{isHamburgerOpen && <div className="menu-background" onClick={toggleHamburger}>
+				<div className="menu" onClick={(e) => e.stopPropagation()}>
 				<div className="menu-title">Options</div>
 				<hr />
 				<ul className="menu-list2">
-					<li><span className="material-icons">chevron_right</span><label htmlFor="import-input">Import Input</label></li>
-					<li onClick={exportOutput}><span className="material-icons">chevron_right</span>Export Output</li>
+					<li><span className="material-symbols-outlined">chevron_right</span><label htmlFor="input">Import Input</label></li>
+					<li onClick={exportOutput}><span className="material-symbols-outlined">chevron_right</span>Export Output</li>
 				</ul>
+				</div>
 			</div>}
 		</div>
 	)

@@ -41,6 +41,7 @@
     flex-grow: 1;
     display: flex;
     background-color: #1E1E1E;
+    /* gap: 20px; */
 }
 
 .editor-container {
@@ -62,7 +63,6 @@
     flex-direction: column;
 
 }
-
 
 .input-header {
     align-items: center;
@@ -169,6 +169,16 @@
     background-color: white;
 }
 
+.menu-background {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 6;
+}
+
 .menu {
     position: absolute;
     z-index: 7;
@@ -177,14 +187,15 @@
     height: 100vh;
     background-color: #1E1E1E;
     width: 200px;
-    animation: hamurgerAnimation 1s;
+    animation: hamurgerAnimation 0.7s;
 }
 
 @keyframes hamurgerAnimation {
-    from{
+    from {
         width: 0%;
     }
-    to{
+
+    to {
         width: 200px;
     }
 }
@@ -256,6 +267,12 @@
     }
 
     .remove {
+        display: none;
+    }
+}
+
+@media screen and (max-height:500px) {
+    .header-container {
         display: none;
     }
 }
