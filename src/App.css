@@ -41,7 +41,6 @@
     flex-grow: 1;
     display: flex;
     background-color: #1E1E1E;
-    /* gap: 20px; */
 }
 
 .editor-container {

@@ -278,7 +278,6 @@ export const EditorContainer = ({ runCode, isHamburgerOpen }) => {
         <>
             {isFullScreen ? (
                 <div className="fullscreen" onload="window.scrollTo(0, 1);">
-                    {/* <div className="fullscreen"> */}
                     <div className="root-editor-container">
                         {renderEditorLayout()}
                     </div>
