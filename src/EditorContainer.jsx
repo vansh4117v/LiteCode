@@ -3,6 +3,7 @@ import "./EditorContainer.css";
 import Editor from "@monaco-editor/react";
 
 const defaultEditorOptions = {
+    scrollBeyondLastLine: false,
     fontSize: 16,
     wordWrap: 'on',
     theme: 'vs-light',
@@ -155,6 +156,7 @@ export const EditorContainer = ({ runCode, isHamburgerOpen }) => {
             ...prevCode,
             [language]: ""
         }));
+        setKey(key+1)
     };
     const resetCode = () => {
         const defaultCode = defaultCodes[language];

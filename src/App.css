@@ -2,6 +2,7 @@
 
 .playground-container {
     height: 100vh;
+    height: 100dvh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -27,7 +28,7 @@
 }
 
 .header-container .title {
-    font-size: 32px;
+    font-size: 2rem;
     font-family: "Play", sans-serif;
 }
 
@@ -68,7 +69,7 @@
     box-sizing: border-box;
     padding: 10px;
     background-color: #EDEDED;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
     display: flex;
     justify-content: space-between;
@@ -90,7 +91,7 @@
     border: none;
     resize: none;
     padding: 10px;
-    font-size: 20px;
+    font-size: 1.25rem;
     white-space: nowrap;
     overflow-x: auto;
     white-space: pre-wrap;
@@ -107,13 +108,13 @@
 
 .export-import-text {
     font-family: "Play", sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 400;
 }
 
 .clr {
     font-family: "Play", sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
 }
 
@@ -201,7 +202,7 @@
 
 .menu-title {
     color: white;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
     margin-top: 40px;
     text-align: center;
@@ -222,7 +223,7 @@
 .menu-list2 li {
     color: white;
     font-family: "Play", sans-serif;
-    font-size: 17px;
+    font-size: 1rem;
     font-weight: 400;
     display: flex;
     align-items: center;
@@ -230,7 +231,7 @@
     margin-top: 5px;
 }
 
-@media screen and (max-width:1225px) {
+@media screen and (max-width:1000px) {
     .content-container {
         display: flex;
         flex-direction: column;
@@ -274,6 +275,12 @@
     .header-container {
         display: none;
     }
+    * {
+        font-size: 12px;
+    }
+}
+@media screen and (max-height:500px) and (min-width: 1000px) {
+    
 }
 
 /* vansh4117v */

@@ -61,7 +61,7 @@
     color: black;
     border: none;
     font-family: "Play", sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     gap: 10px;
     cursor: pointer;
 }
@@ -107,7 +107,7 @@
 .menu-list1 li {
     color: white;
     font-family: "Play", sans-serif;
-    font-size: 17px;
+    font-size: 1rem;
     font-weight: 400;
     display: flex;
     align-items: center;
@@ -179,20 +179,20 @@
 }
 
 .settings-card-title {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 160%;
     margin: 0;
     font-weight: bold;
 }
 
 .settings-card-desc {
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 160%;
     margin: 0;
 }
 
 .settings-card-right {
-    font-size: 14px;
+    font-size: 1rem;
     cursor: pointer;
     outline: none;
     width: 120px;
@@ -256,7 +256,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width:1225px) {
+@media screen and (max-width:1000px) {
     .editor-body {
         flex-grow: 0;
         height: calc(100vh - 23rem);
@@ -290,7 +290,7 @@
         height: calc(100vh - 14rem);
         height: calc(100dvh - 12rem);
     }
-
+    
     .fullscreen .editor-body {
         height: calc(100vh - 11rem);
         height: calc(100dvh - 8rem);
@@ -299,10 +299,18 @@
     .settings-card-desc {
         display: none;
     }
-
+    
     .settings-container {
         width: 300px;
         height: 250px;
+    }
+}
+
+@media screen and (max-height:500px) and (min-width: 1000px) {
+    .editor-body {
+        flex-grow: 0;
+        height: calc(100vh - 10rem);
+        height: calc(100dvh - 8rem);
     }
 }
 
