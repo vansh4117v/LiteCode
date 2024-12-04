@@ -1,4 +1,4 @@
-# [**Live Demo**](https://vansh4117v.github.io/LiteCode/)
+# [**Live**](https://vansh4117v.github.io/LiteCode/)
 
 # LiteCode - Online Code Editor
 
