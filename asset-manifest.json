@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/LiteCode/static/css/main.9f0ae578.css",
-    "main.js": "/LiteCode/static/js/main.3ddfd98f.js",
+    "main.css": "/LiteCode/static/css/main.b9f72326.css",
+    "main.js": "/LiteCode/static/js/main.162133e5.js",
     "index.html": "/LiteCode/index.html",
-    "main.9f0ae578.css.map": "/LiteCode/static/css/main.9f0ae578.css.map",
-    "main.3ddfd98f.js.map": "/LiteCode/static/js/main.3ddfd98f.js.map"
+    "main.b9f72326.css.map": "/LiteCode/static/css/main.b9f72326.css.map",
+    "main.162133e5.js.map": "/LiteCode/static/js/main.162133e5.js.map"
   },
   "entrypoints": [
-    "static/css/main.9f0ae578.css",
-    "static/js/main.3ddfd98f.js"
+    "static/css/main.b9f72326.css",
+    "static/js/main.162133e5.js"
   ]
 }
