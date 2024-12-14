@@ -96,10 +96,16 @@ export const EditorContainer = ({ runCode, isHamburgerOpen }) => {
         codeRef.current = newCode;
     };
 
-    const onChangeThemeSettings = () => {
+    const onChangeThemeSettings = (event) => {
+        const newTheme = event.target.value;
+        const isDarkToLight = editorOptions.theme === 'vs-dark' && (newTheme === 'semi-dark' || newTheme === 'vs-light');
+        const isLightToDark = (editorOptions.theme === 'vs-light' || editorOptions.theme === 'semi-dark') && newTheme === 'vs-dark';
+        if (isDarkToLight || isLightToDark) {
+            document.body.classList.toggle("dark-mode");
+        }
         setEditorOptions(prevOptions => ({
             ...prevOptions,
-            theme: prevOptions.theme === "vs-light" ? "vs-dark" : "vs-light"
+            theme: newTheme
         }));
     }
 
@@ -156,7 +162,7 @@ export const EditorContainer = ({ runCode, isHamburgerOpen }) => {
             ...prevCode,
             [language]: ""
         }));
-        setKey(key+1)
+        setKey(key + 1)
     };
     const resetCode = () => {
         const defaultCode = defaultCodes[language];
@@ -211,8 +217,8 @@ export const EditorContainer = ({ runCode, isHamburgerOpen }) => {
                     </select>
 
                     {/* Open Settings Button */}
-                    <button className="header-btn btn-theme remove" onClick={onToggleSettings} title="Configure Editor">          
-                    <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"/></svg></span>
+                    <button className="header-btn btn-theme remove" onClick={onToggleSettings} title="Configure Editor">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" /></svg></span>
                     </button>
                 </div>
             </div>
@@ -224,8 +230,8 @@ export const EditorContainer = ({ runCode, isHamburgerOpen }) => {
                     key={key}
                     height={"100%"}
                     language={language}
-                    options={editorOptions}
-                    theme={editorOptions.theme}
+                    options={{ ...editorOptions, theme: (editorOptions.theme === 'semi-dark') ? 'vs-dark' : editorOptions.theme }}
+                    theme={(editorOptions.theme === 'semi-dark') ? 'vs-dark' : editorOptions.theme}
                     onChange={onChangeCode}
                     value={code[language]}
                 />
@@ -258,7 +264,7 @@ export const EditorContainer = ({ runCode, isHamburgerOpen }) => {
                 <input type="file" accept={`.txt,.${fileExtensionMapping[language]}`} id="import-code" style={{ display: 'none' }} onChange={(e) => { onUploadCode(e); e.target.value = ""; }} />
 
                 {/* Export Code Button */}
-                <button className="btn remove" onClick={exportCode}> 
+                <button className="btn remove" onClick={exportCode}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
                         <path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" />
                     </svg>
@@ -300,11 +306,11 @@ export const EditorContainer = ({ runCode, isHamburgerOpen }) => {
                         <div className="settings-container" onClick={(event) => event.stopPropagation()}>
                             <div className="settings-header">
                                 <span className="settings-header-title">Editor Settings</span>
-                                    <span className="settings-close" onClick={onToggleSettings}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
-                                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                                        </svg>
-                                    </span>
+                                <span className="settings-close" onClick={onToggleSettings}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                                    </svg>
+                                </span>
                             </div>
                             <div className="settings-body">
                                 <div className="settings-card">
@@ -312,8 +318,12 @@ export const EditorContainer = ({ runCode, isHamburgerOpen }) => {
                                         <p className="settings-card-title">Theme</p>
                                         <p className="settings-card-desc remove">Tired of the white background? Try different styles and syntax highlighting.</p>
                                     </div>
-                                    <div className="settings-card-right settings-theme-button" onClick={onChangeThemeSettings}>
-                                        {editorOptions.theme === "vs-dark" ? "Light Mode" : "Dark Mode"}
+                                    <div className="settings-card-right settings-theme-button">
+                                        <select value={editorOptions.theme} onChange={onChangeThemeSettings} className="settings-theme-dropDown">
+                                            <option value="vs-light">Light Mode</option>
+                                            <option value="semi-dark">Semi-Dark</option>
+                                            <option value="vs-dark">Dark Mode</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div className="settings-card">

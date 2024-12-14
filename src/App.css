@@ -41,7 +41,6 @@
 .content-container {
     flex-grow: 1;
     display: flex;
-    background-color: #1E1E1E;
 }
 
 .editor-container {
@@ -68,7 +67,7 @@
     align-items: center;
     box-sizing: border-box;
     padding: 10px;
-    background-color: #EDEDED;
+    background-color: var(--secondary-bg-color);
     font-size: 1.25rem;
     font-weight: 700;
     display: flex;
@@ -76,6 +75,7 @@
     height: 4rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px;
     z-index: 2;
+    color: var(--main-text-color);
 }
 
 .icon-container {
@@ -95,11 +95,15 @@
     white-space: nowrap;
     overflow-x: auto;
     white-space: pre-wrap;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color)
 }
 
 .input-output-container button {
     border: none;
     cursor: pointer;
+    background-color: var(--secondary-bg-color);
+    color: var(--main-text-color)
 }
 
 .input-output-container textarea:focus {
@@ -185,7 +189,7 @@
     top: 0;
     right: 0;
     height: 100vh;
-    background-color: #1E1E1E;
+    background-color: black;
     width: 200px;
     animation: hamurgerAnimation 0.7s;
 }
@@ -245,7 +249,7 @@
         height: 500px;
         width: 100%;
         flex-grow: 1;
-        background-color: #1E1E1E;
+
     }
 
     .input-output-container {
@@ -275,6 +279,7 @@
     .header-container {
         display: none;
     }
+
     * {
         font-size: 12px;
     }

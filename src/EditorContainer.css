@@ -7,7 +7,7 @@
 }
 
 .editor-header {
-    background-color: white;
+    background-color: var(--main-bg-color);
     box-sizing: border-box;
     height: 4rem;
     padding: 10px;
@@ -26,13 +26,14 @@
 .editor-header .header-btn,
 .editor-header select {
     border: 1px solid gray;
-    background-color: white;
+    background-color: var(--main-bg-color);
     border-color: rgb(204, 204, 204);
     padding: 10px 20px;
     border-radius: 5px;
     margin-left: 8px;
     margin-right: 8px;
     cursor: pointer;
+    color:var(--main-text-color);
 }
 
 .editor-header select:focus {
@@ -50,15 +51,15 @@
 .editor-header .title {
     font-family: "Play", sans-serif;
     font-size: 25px;
-    color: black;
+    color: var(--main-text-color);
 }
 
 .btn {
     display: flex;
     align-items: center;
     padding: 4px 10px;
-    background-color: white;
-    color: black;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
     border: none;
     font-family: "Play", sans-serif;
     font-size: 1.25rem;
@@ -66,13 +67,17 @@
     cursor: pointer;
 }
 
+.dark-mode .gpt{
+    filter: invert(1);
+}
+
 .editor-body {
-    background-color: white;
+    background-color: var(--main-bg-color);
     flex-grow: 1;
 }
 
 .editor-footer {
-    background-color: white;
+    background-color: var(--main-bg-color);
     box-sizing: border-box;
     height: 4rem;
     display: flex;
@@ -203,8 +208,26 @@
 .settings-theme-button {
     border: 1px solid rgba(59, 66, 80, 0.7);
     box-sizing: border-box;
-    padding: 8px;
     border-radius: 4px;
+}
+
+.settings-theme-dropDown{
+    height: inherit;
+    width: 110px;
+    box-sizing: border-box;
+    padding: 8px;
+    border: none;
+    background-color: #1d1e23;
+    color: white;
+    cursor: pointer;
+}
+
+.settings-theme-dropDown select option{
+    cursor:pointer; 
+}
+
+.settings-theme-dropDown:focus{
+    outline: none;
 }
 
 .font-button,
